@@ -186,6 +186,7 @@ export async function openEngine(engine: EngineName): Promise<Connection> {
       "updated_at" TIMESTAMP(3) WITH TIME ZONE NULL
     )`)
   }
+  // biome-ignore lint/correctness/useHookAtTopLevel: the ORM's connection setter, not a React hook
   useConnection(connection)
   return connection
 }
