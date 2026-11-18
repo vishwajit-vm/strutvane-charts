@@ -1,0 +1,128 @@
+{
+  "name": "@strutvane/charts",
+  "version": "0.1.0",
+  "description": "KPI cards and chart widgets for Strutvane admin screens: named metrics aggregated on the server through the framework's query builder (tenant- and policy-scoped, small groups suppressed), drawn as accessible, token-themed SVG charts.",
+  "keywords": [
+    "strutvane",
+    "charts",
+    "kpi",
+    "dashboard",
+    "metrics",
+    "aggregates",
+    "react",
+    "accessibility",
+    "typescript"
+  ],
+  "homepage": "https://github.com/vishwajit-vm/strutvane-charts#readme",
+  "bugs": {
+    "url": "https://github.com/vishwajit-vm/strutvane-charts/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vishwajit-vm/strutvane-charts.git"
+  },
+  "license": "MIT",
+  "author": "The Strutvane Authors",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    },
+    "./server": {
+      "types": "./dist/server.d.mts",
+      "default": "./dist/server.mjs"
+    },
+    "./react": {
+      "types": "./dist/react.d.mts",
+      "default": "./dist/react.mjs"
+    },
+    "./provider": {
+      "types": "./dist/provider.d.mts",
+      "default": "./dist/provider.mjs"
+    },
+    "./installer": {
+      "types": "./dist/installer.d.mts",
+      "default": "./dist/installer.mjs"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=24.3"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "lint": "biome check .",
+    "format": "biome check --write .",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "build": "tsdown",
+    "ci": "biome check . && tsc --noEmit && vitest run --coverage && tsdown",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "changeset publish",
+    "test:perf": "vitest run --config vitest.perf.config.ts"
+  },
+  "peerDependencies": {
+    "@strutvane/framework": "^0.2.0-next.0",
+    "react": "^19.2.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.6.7",
+    "@changesets/cli": "3.0.3",
+    "@electric-sql/pglite": "0.5.16",
+    "@strutvane/framework": "0.2.0-next.0",
+    "@testing-library/dom": "10.4.2",
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.10",
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitest/coverage-v8": "5.1.0",
+    "axe-core": "4.14.0",
+    "jsdom": "31.0.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "tsdown": "0.23.7",
+    "typescript": "6.0.3",
+    "vitest": "5.1.0"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "npm",
+      "version": ">=11.19.0",
+      "onFail": "error"
+    }
+  },
+  "strutvane": {
+    "id": "charts",
+    "name": "Charts",
+    "description": "KPI cards and chart widgets for your dashboards, aggregated safely on the server.",
+    "category": "data",
+    "tags": [
+      "charts",
+      "kpi",
+      "widgets",
+      "dashboard"
+    ],
+    "compat": "^0.2.0-next.0",
+    "installer": "./dist/installer.mjs",
+    "docs": "https://github.com/vishwajit-vm/strutvane-charts#readme"
+  }
+}
